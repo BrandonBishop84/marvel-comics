@@ -12,6 +12,11 @@ function App() {
 		setSearchString(event.target.value);
 	}
 
+	function handleSubmit(event) {
+		event.preventDefault();
+		ApiFunction();
+	}
+
 	useEffect(() => {
 		ApiFunction();
 	}, []);
@@ -22,22 +27,17 @@ function App() {
 		const ts = Number(new Date());
 		const hash = md5.create();
 		hash.update(ts + PRIVATE_KEY + PUBLIC_KEY);
-		fetch(
-			`https://gateway.marvel.com/v1/public/characters?ts=${ts}&limit=10&apikey=${PUBLIC_KEY}&hash=${hash.hex()}`
-		)
+		const url = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&limit=10&apikey=${PUBLIC_KEY}&hash=${hash.hex()}`;
+		fetch(url)
 			.then((res) => res.json())
 			.then((res) => {
-				console.log(data);
-				setResults(res.data);
+				console.log(res.data.results);
+				setResults(res.data.results);
 				setSearchString('');
 			})
 			.catch(console.error);
 	}
 
-	function handleSubmit(event) {
-		event.preventDefault();
-		ApiFunction();
-	}
 	return (
 		<div className='App'>
 			<h1>Marvel Comic Cover Art Finder</h1>
