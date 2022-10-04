@@ -6,7 +6,9 @@ import md5 from 'js-md5';
 function App() {
 	const [searchString, setSearchString] = useState('');
 	const [results, setResults] = useState([]);
-	const characterId = searchString;
+	const [name, setName] = useState([]);
+	const [cover, setCover] = useState([]);
+	const [character, setCharacter] = useState([]);
 
 	function handleChange(event) {
 		setSearchString(event.target.value);
@@ -14,14 +16,14 @@ function App() {
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		ApiFunction();
+		ApiFunction(searchString);
 	}
 
 	useEffect(() => {
-		ApiFunction();
+		ApiFunction(searchString);
 	}, []);
 
-	function ApiFunction() {
+	function ApiFunction(searchString) {
 		const PUBLIC_KEY = '5ecc5f91ce6ea20083af43b00c42b219'; // your public key
 		const PRIVATE_KEY = `${process.env.REACT_APP_MARVEL_KEY}`; // your private key
 		const ts = Number(new Date());
@@ -31,8 +33,11 @@ function App() {
 		fetch(url)
 			.then((res) => res.json())
 			.then((res) => {
-				console.log(res.data.results);
-				setResults(res.data.results);
+				setCharacter(res.data.results[0].thumbnail)
+				setCover(res.data.results[0].comics.items[0].resourceURI);
+				setName(res.data.results[0].comics.items[0].name);
+				console.log(res.data.results[0].thumbnail.path);
+				//setResults(res.data.results[0].comics.items[0].);
 				setSearchString('');
 			})
 			.catch(console.error);
@@ -46,7 +51,7 @@ function App() {
 				handleSubmit={handleSubmit}
 				searchString={searchString}
 			/>
-			<Results results={results} />
+			<Results character={character} name={name} cover={cover}/>
 		</div>
 	);
 }

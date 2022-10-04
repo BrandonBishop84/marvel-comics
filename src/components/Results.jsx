@@ -1,14 +1,12 @@
 import React from 'react';
 
-const Results = ({ results }) => {
+const Results = (props) => {
     return (
-        <div className='gallery'>
-            <ul>
-                <p>results</p>
-            </ul>
+        <div>
+            <p>results</p>
+            <p>{props.name}</p>
+            <img src={`${props.character.path}.${props.character.extension}`}/>
 
-           
-            
         </div>
     );
 }

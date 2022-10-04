@@ -12,7 +12,7 @@ function SearchBar({ handleSubmit, handleChange, searchString}) {
                 value={searchString}
                 onChange={handleChange}/>
                 <button type="submit">
-
+                        
                 </button>
             </form>
             
