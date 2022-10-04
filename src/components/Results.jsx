@@ -1,13 +1,18 @@
 import React from 'react';
 
-const Results = (props) => {
+const Results = ({ results }) => {
+    if (!results) {
+        return <h2>No Results</h2>
+    }
     return (
         <div>
-            <p>results</p>
-            <p>{props.name}</p>
-            <img src={`${props.character.path}.${props.character.extension}`}/>
+            <h1>results</h1>
+         
+            <img src={`${results.thumbnail.path}.${results.thumbnail.extension}`}/> 
+          
 
         </div>
+       
     );
 }
 

@@ -4,12 +4,13 @@ import { useEffect, useState } from 'react';
 import md5 from 'js-md5';
 
 function App() {
-	const [searchString, setSearchString] = useState('');
-	const [results, setResults] = useState([]);
-	const [name, setName] = useState([]);
+	const [searchString, setSearchString] = useState('wolverine');
+	const [results, setResults] = useState();
+	/*const [name, setName] = useState([]);
 	const [cover, setCover] = useState([]);
 	const [character, setCharacter] = useState([]);
-
+	const [coverName, setCoverName] = useState([]);
+*/
 	function handleChange(event) {
 		setSearchString(event.target.value);
 	}
@@ -23,22 +24,26 @@ function App() {
 		ApiFunction(searchString);
 	}, []);
 
-	function ApiFunction(searchString) {
+	function ApiFunction(str) {
 		const PUBLIC_KEY = '5ecc5f91ce6ea20083af43b00c42b219'; // your public key
 		const PRIVATE_KEY = `${process.env.REACT_APP_MARVEL_KEY}`; // your private key
 		const ts = Number(new Date());
 		const hash = md5.create();
 		hash.update(ts + PRIVATE_KEY + PUBLIC_KEY);
-		const url = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&limit=10&apikey=${PUBLIC_KEY}&hash=${hash.hex()}`;
+		const url = `https://gateway.marvel.com/v1/public/comics?titleStartsWith=${str}&ts=${ts}&orderBy=title&limit=25&apikey=${PUBLIC_KEY}&hash=${hash.hex()}`;
 		fetch(url)
 			.then((res) => res.json())
 			.then((res) => {
-				setCharacter(res.data.results[0].thumbnail)
+				/*setCharacter(res.data.results[0].thumbnail);
 				setCover(res.data.results[0].comics.items[0].resourceURI);
-				setName(res.data.results[0].comics.items[0].name);
-				console.log(res.data.results[0].thumbnail.path);
-				//setResults(res.data.results[0].comics.items[0].);
-				setSearchString('');
+				setCoverName(res.data.results[0].comics.items[0].name);
+
+				setName(res.data.results[0].name);
+*/
+				console.log(res);
+
+				setResults(res.data.results[0]);
+				//setSearchString('');
 			})
 			.catch(console.error);
 	}
@@ -51,7 +56,7 @@ function App() {
 				handleSubmit={handleSubmit}
 				searchString={searchString}
 			/>
-			<Results character={character} name={name} cover={cover}/>
+			 <Results results={results} /> 
 		</div>
 	);
 }
