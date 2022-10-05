@@ -1,4 +1,5 @@
 import React from 'react';
+import FirstIssue from './FirstIssue';
 
 function SearchBar({ handleSubmit, handleChange, searchString}) {
     return (
@@ -11,10 +12,15 @@ function SearchBar({ handleSubmit, handleChange, searchString}) {
                 name="searchString" 
                 value={searchString}
                 onChange={handleChange}/>
-                <button type="submit">
-                        
+                <button type="submit">Submit
                 </button>
             </form>
+
+            <div>
+                <button>
+                    See First Issue!
+                </button>
+            </div>
             
         </div>
     );

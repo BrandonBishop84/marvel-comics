@@ -1,16 +1,15 @@
 import SearchBar from './components/SearchBar';
+import FirstIssue from './components/FirstIssue';
 import Results from './components/Results';
 import { useEffect, useState } from 'react';
 import md5 from 'js-md5';
 
 function App() {
-	const [searchString, setSearchString] = useState('wolverine');
+	const [searchString, setSearchString] = useState('spider-man');
 	const [results, setResults] = useState();
-	/*const [name, setName] = useState([]);
-	const [cover, setCover] = useState([]);
-	const [character, setCharacter] = useState([]);
-	const [coverName, setCoverName] = useState([]);
-*/
+	const [firstIssue, setFirstIssue] = useState();
+
+
 	function handleChange(event) {
 		setSearchString(event.target.value);
 	}
@@ -30,20 +29,16 @@ function App() {
 		const ts = Number(new Date());
 		const hash = md5.create();
 		hash.update(ts + PRIVATE_KEY + PUBLIC_KEY);
-		const url = `https://gateway.marvel.com/v1/public/comics?titleStartsWith=${str}&ts=${ts}&orderBy=title&limit=25&apikey=${PUBLIC_KEY}&hash=${hash.hex()}`;
+		const url = `https://gateway.marvel.com/v1/public/comics?titleStartsWith=${str}&ts=${ts}&orderBy=title&orderBy=onsaleDate&limit=25&apikey=${PUBLIC_KEY}&hash=${hash.hex()}`;
 		fetch(url)
 			.then((res) => res.json())
 			.then((res) => {
-				/*setCharacter(res.data.results[0].thumbnail);
-				setCover(res.data.results[0].comics.items[0].resourceURI);
-				setCoverName(res.data.results[0].comics.items[0].name);
-
-				setName(res.data.results[0].name);
-*/
+			
 				console.log(res);
 
-				setResults(res.data.results[0]);
-				//setSearchString('');
+				setResults(res.data.results[7]);
+				setFirstIssue(res.data.results[0]);
+			
 			})
 			.catch(console.error);
 	}
@@ -55,8 +50,10 @@ function App() {
 				handleChange={handleChange}
 				handleSubmit={handleSubmit}
 				searchString={searchString}
+			
 			/>
-			 <Results results={results} /> 
+			<Results results={results} />
+			<FirstIssue firstIssue={firstIssue}/>
 		</div>
 	);
 }

@@ -6,10 +6,9 @@ const Results = ({ results }) => {
     }
     return (
         <div>
-            <h1>results</h1>
-         
+            <h1>Title: {results.title}</h1>
             <img src={`${results.thumbnail.path}.${results.thumbnail.extension}`}/> 
-          
+            <h2>Description: {results.description}</h2>
 
         </div>
        
