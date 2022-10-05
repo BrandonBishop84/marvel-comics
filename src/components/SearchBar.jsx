@@ -3,10 +3,11 @@ import React from 'react';
 function SearchBar({ handleSubmit, handleChange, searchString }) {
     return (
         <div>
+        
 
             <form className='form' onSubmit={handleSubmit}>
+                <p>Enter Character Name</p>
                 <input 
-                placeholder='Enter Marvel Character'
                 type='text'
                 name="searchString" 
                 value={searchString}

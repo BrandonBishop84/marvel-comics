@@ -1,14 +1,14 @@
 import SearchBar from './components/SearchBar';
+import Header from './components/Header';
 import Results from './components/Results';
+import AboutMe from './components/AboutMe';
 import { useEffect, useState } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import md5 from 'js-md5';
-
 
 function App() {
 	const [searchString, setSearchString] = useState('spider-man');
-	const [results, setResults] = useState();
-	const [seeArtist, setSeeArtist] = useState();
-
+	const [results, setResults] = useState([]);
 
 	function handleChange(event) {
 		setSearchString(event.target.value);
@@ -33,27 +33,31 @@ function App() {
 		fetch(url)
 			.then((res) => res.json())
 			.then((res) => {
-			
-
-				setResults(res.data.results[0]);
-				
-			
+				setResults(res.data.results);
 			})
 			.catch(console.error);
 	}
-	
 
 	return (
-		<div className='App'>
-			<header className='header'>
-				<h1>Marvel Comic Cover Art Finder</h1>
-			</header>
-			<SearchBar
-				handleChange={handleChange}
-				handleSubmit={handleSubmit}
-				searchString={searchString}
-			/>
-			<Results results={results} />
+		<div>
+			<nav className='aboutmelink'>
+				<Link to='/aboutme'>About Me</Link>
+			</nav>
+			<Header />
+			<main>
+				<SearchBar
+					handleChange={handleChange}
+					handleSubmit={handleSubmit}
+					searchString={searchString}
+				/>
+				{results.map((result) => {
+					return <Results result={result} />;
+				})}
+
+				<Routes>
+					<Route path='/aboutme' element={<AboutMe />} />
+				</Routes>
+			</main>
 		</div>
 	);
 }
