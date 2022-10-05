@@ -7,12 +7,13 @@ const Results = ({ result }) => {
     }
     return (
     
-        <div className='results'>
-        <ul>
-            <h1 className='title'>Title: {result.title}</h1>
-            <img className='image' src={`${result.thumbnail.path}.${result.thumbnail.extension}`}/> 
-             <p className='artist'>Artist: {result.creators.items[0].name}</p>
-            <h2 className='description'>Description: {result.description}</h2>
+        <div>
+        <ul className='resultscard'>
+            <li className='listitem'>
+                <h1 className='title'>Title: {result.title}</h1>
+                <img className='image' src={`${result.thumbnail.path}.${result.thumbnail.extension}`}/> 
+                <h2 className='description'>Description: {result.description}</h2>
+            </li>
         </ul>
         </div>
        

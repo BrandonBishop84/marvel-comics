@@ -1,5 +1,5 @@
 import SearchBar from './components/SearchBar';
-import Header from './components/Header';
+import Home from './components/Home';
 import Results from './components/Results';
 import AboutMe from './components/AboutMe';
 import { useEffect, useState } from 'react';
@@ -7,7 +7,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import md5 from 'js-md5';
 
 function App() {
-	const [searchString, setSearchString] = useState('spider-man');
+	const [searchString, setSearchString] = useState('  ');
 	const [results, setResults] = useState([]);
 
 	function handleChange(event) {
@@ -29,7 +29,7 @@ function App() {
 		const ts = Number(new Date());
 		const hash = md5.create();
 		hash.update(ts + PRIVATE_KEY + PUBLIC_KEY);
-		const url = `https://gateway.marvel.com/v1/public/comics?titleStartsWith=${str}&ts=${ts}&orderBy=title&orderBy=onsaleDate&limit=25&apikey=${PUBLIC_KEY}&hash=${hash.hex()}`;
+		const url = `https://gateway.marvel.com/v1/public/comics?titleStartsWith=${str}&ts=${ts}&orderBy=title&orderBy=onsaleDate&limit=5&apikey=${PUBLIC_KEY}&hash=${hash.hex()}`;
 		fetch(url)
 			.then((res) => res.json())
 			.then((res) => {
@@ -41,10 +41,19 @@ function App() {
 	return (
 		<div>
 			<nav className='aboutmelink'>
+				<Link to='/'>Home</Link>
 				<Link to='/aboutme'>About Me</Link>
+				<header className='header'>
+					<h1>MARVEL Comic Art Finder</h1>
+				</header>
 			</nav>
-			<Header />
+
 			<main>
+				<Routes>
+					<Route path='/' element={<Home />} />
+					<Route path='/aboutme' element={<AboutMe />} />
+				</Routes>
+
 				<SearchBar
 					handleChange={handleChange}
 					handleSubmit={handleSubmit}
@@ -53,10 +62,6 @@ function App() {
 				{results.map((result) => {
 					return <Results result={result} />;
 				})}
-
-				<Routes>
-					<Route path='/aboutme' element={<AboutMe />} />
-				</Routes>
 			</main>
 		</div>
 	);

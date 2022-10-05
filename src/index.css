@@ -11,26 +11,29 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 		monospace;
 }
-.results {
+.resultscard {
+	height: 700px;
 	display: grid;
-	grid-template-rows: 75px 1fr 1fr 1fr 25px 100px;
-	grid-template-columns: 100px 1fr 1fr 1fr 1fr 100px;
+	grid-template-columns: 1fr 2fr 2fr 2fr 2fr 1fr;
+	grid-template-rows: 100px 1fr 1fr 1fr 1fr 100px;
 }
+
+.listitem {
+	grid-row: 1 / span 4;
+	grid-column: 3 / span 2;
+}
+
 .title {
-	text-align: center;
-	grid-row: 1;
-	grid-column: 2 / span 4;
+	text-align: left;
 }
 .image {
-	height: 35%;
-	grid-row: 2 / span 3;
-	grid-column: 3;
+	height: 500px;
+	
 }
 .description {
 	font-size: 20px;
-	text-align: center;
-	grid-row: 6;
-	grid-column: 2 / span 4;
+	text-align: left;
+	width: 350px;
 }
 .form {
 	text-align: center;
@@ -55,6 +58,4 @@ code {
 	width: 400px;
 	display: flex;
 	flex-direction: column;
-	
-	
 }
