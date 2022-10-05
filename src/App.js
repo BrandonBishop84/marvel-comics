@@ -1,13 +1,13 @@
 import SearchBar from './components/SearchBar';
-import FirstIssue from './components/FirstIssue';
 import Results from './components/Results';
 import { useEffect, useState } from 'react';
 import md5 from 'js-md5';
 
+
 function App() {
 	const [searchString, setSearchString] = useState('spider-man');
 	const [results, setResults] = useState();
-	const [firstIssue, setFirstIssue] = useState();
+	const [seeArtist, setSeeArtist] = useState();
 
 
 	function handleChange(event) {
@@ -34,26 +34,26 @@ function App() {
 			.then((res) => res.json())
 			.then((res) => {
 			
-				console.log(res);
 
-				setResults(res.data.results[7]);
-				setFirstIssue(res.data.results[0]);
+				setResults(res.data.results[0]);
+				
 			
 			})
 			.catch(console.error);
 	}
+	
 
 	return (
 		<div className='App'>
-			<h1>Marvel Comic Cover Art Finder</h1>
+			<header className='header'>
+				<h1>Marvel Comic Cover Art Finder</h1>
+			</header>
 			<SearchBar
 				handleChange={handleChange}
 				handleSubmit={handleSubmit}
 				searchString={searchString}
-			
 			/>
 			<Results results={results} />
-			<FirstIssue firstIssue={firstIssue}/>
 		</div>
 	);
 }
