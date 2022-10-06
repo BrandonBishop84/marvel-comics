@@ -55,7 +55,17 @@ code {
 }
 .aboutme {
 	text-align: center;
-	width: 400px;
-	display: flex;
-	flex-direction: column;
+	width: 620px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 2fr;
+	grid-template-rows: 50px 100px;
+}
+.p {
+	grid-row: 2;
+	grid-column: 3 / span 2;
+}
+
+.h1 {
+	grid-row: 1;
+	grid-column: 3/ span 2;
 }
