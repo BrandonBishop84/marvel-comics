@@ -5,8 +5,10 @@ body {
 	font-family: 'League Gothic', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background-image: url(https://i.imgur.com/ast6Epeh.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
-
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 		monospace;
@@ -17,18 +19,15 @@ code {
 	grid-template-columns: 1fr 2fr 2fr 2fr 2fr 1fr;
 	grid-template-rows: 100px 1fr 1fr 1fr 1fr 100px;
 }
-
 .listitem {
 	grid-row: 1 / span 4;
 	grid-column: 3 / span 2;
 }
-
 .title {
 	text-align: left;
 }
 .image {
 	height: 500px;
-	
 }
 .description {
 	font-size: 20px;
@@ -37,20 +36,34 @@ code {
 }
 .form {
 	text-align: center;
+	align-items: center;
+
+}
+.enter {
+	display: flex;
+	flex-direction: column;
+	min-height: ;
+	text-align: center;
+	text-shadow: 2px 2px 1px black;
+	
+
 }
 .header {
 	text-align: center;
 	font-size: 30px;
+	text-shadow: 3px 3px black;
+	letter-spacing: -.5px;
+	font-weight: bolder;
 }
 .artist {
 	text-align: center;
 	grid-row: 5;
 	grid-column: 2 / span 4;
 }
-.aboutmelink {
-	color: white;
+.nav {
+	color: whitesmoke;
 	display: flex;
-	align-items: center;
+	align-items: left;
 	flex-direction: column;
 }
 .aboutme {
@@ -59,13 +72,17 @@ code {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 2fr;
 	grid-template-rows: 50px 100px;
+	color: whitesmoke;
+	text-shadow: 1px 1px 6px black;
 }
 .p {
 	grid-row: 2;
 	grid-column: 3 / span 2;
 }
-
 .h1 {
 	grid-row: 1;
-	grid-column: 3/ span 2;
+	grid-column: 3 / span 2;
+}
+link {
+	color: white;
 }

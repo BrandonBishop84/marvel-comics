@@ -40,7 +40,7 @@ function App() {
 
 	return (
 		<div>
-			<nav className='aboutmelink'>
+			<nav className='nav'>
 				<Link to='/'>Home</Link>
 				<Link to='/aboutme'>About Me</Link>
 				<header className='header'>
