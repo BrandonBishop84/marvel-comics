@@ -37,7 +37,6 @@ code {
 .form {
 	text-align: center;
 	align-items: center;
-
 }
 .enter {
 	display: flex;
@@ -45,26 +44,18 @@ code {
 	min-height: ;
 	text-align: center;
 	text-shadow: 2px 2px 1px black;
-	
-
 }
 .header {
 	text-align: center;
 	font-size: 30px;
 	text-shadow: 3px 3px black;
-	letter-spacing: -.5px;
+	letter-spacing: -0.5px;
 	font-weight: bolder;
 }
 .artist {
 	text-align: center;
 	grid-row: 5;
 	grid-column: 2 / span 4;
-}
-.nav {
-	color: whitesmoke;
-	display: flex;
-	align-items: left;
-	flex-direction: column;
 }
 .aboutme {
 	text-align: center;
@@ -83,6 +74,8 @@ code {
 	grid-row: 1;
 	grid-column: 3 / span 2;
 }
-link {
-	color: white;
+a {
+	color: black;
+	display: flex;
+	justify-content: center;
 }

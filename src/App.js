@@ -41,8 +41,10 @@ function App() {
 	return (
 		<div>
 			<nav className='nav'>
-				<Link to='/'>Home</Link>
-				<Link to='/aboutme'>About Me</Link>
+				<div>
+					<Link to='/'>Home</Link>
+					<Link to='/AboutMe'>About Me</Link>
+				</div>
 				<header className='header'>
 					<h1>MARVEL Comic Art Finder</h1>
 				</header>
