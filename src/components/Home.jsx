@@ -5,7 +5,6 @@ function Home() {
         <div>
            <div className='enter'>
                 <h2>Enter Character Name</h2>
-                <p>Try "X-men" or "Black Panther"</p>
             </div>
         </div>
     );

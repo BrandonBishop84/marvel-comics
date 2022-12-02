@@ -7,6 +7,7 @@ function SearchBar({ handleSubmit, handleChange, searchString }) {
             <form className='form' onSubmit={handleSubmit}>
                 <input 
                 type='text'
+                placeholder='Try X-men or Black Panther'
                 name="searchString" 
                 value={searchString}
                 onChange={handleChange}/>

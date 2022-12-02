@@ -14,34 +14,41 @@ code {
 		monospace;
 }
 .resultscard {
+	flex-basis: 50%;
 	height: 700px;
 	display: grid;
 	grid-template-columns: 1fr 2fr 2fr 2fr 2fr 1fr;
 	grid-template-rows: 100px 1fr 1fr 1fr 1fr 100px;
+	float: left;
+	width: 25%;
+	padding: 0 5px;
 }
 .listitem {
-	grid-row: 1 / span 4;
-	grid-column: 3 / span 2;
+	grid-row: 4 / span 4;
+	grid-column: 2 / span 2;
 }
 .title {
 	text-align: left;
+	text-shadow: 1px 1px 10px #3562f6;
 }
 .image {
-	height: 500px;
+	height: 400px;
+	box-shadow: 0px 0px 20px 7px #3562f6;
 }
 .description {
 	font-size: 20px;
 	text-align: left;
-	width: 350px;
+	width: 260px;
+	text-shadow: 1px 1px 10px #3562f6;
 }
 .form {
 	text-align: center;
 	align-items: center;
+	height: 4rem;
 }
 .enter {
 	display: flex;
 	flex-direction: column;
-	min-height: ;
 	text-align: center;
 	text-shadow: 2px 2px 1px black;
 }
@@ -51,11 +58,6 @@ code {
 	text-shadow: 3px 3px black;
 	letter-spacing: -0.5px;
 	font-weight: bolder;
-}
-.artist {
-	text-align: center;
-	grid-row: 5;
-	grid-column: 2 / span 4;
 }
 .aboutme {
 	text-align: center;
@@ -78,4 +80,7 @@ a {
 	color: black;
 	display: flex;
 	justify-content: center;
+}
+* {
+	box-sizing: border-box;
 }
