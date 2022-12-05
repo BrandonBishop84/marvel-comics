@@ -29,7 +29,7 @@ function App() {
 		const ts = Number(new Date());
 		const hash = md5.create();
 		hash.update(ts + PRIVATE_KEY + PUBLIC_KEY);
-		const url = `https://gateway.marvel.com/v1/public/comics?titleStartsWith=${str}&ts=${ts}&orderBy=title&orderBy=onsaleDate&limit=25&apikey=${PUBLIC_KEY}&hash=${hash.hex()}`;
+		const url = `https://gateway.marvel.com/v1/public/comics?titleStartsWith=${str}&ts=${ts}&orderBy=title&orderBy=onsaleDate&limit=40&apikey=${PUBLIC_KEY}&hash=${hash.hex()}`;
 		fetch(url)
 			.then((res) => res.json())
 			.then((res) => {
