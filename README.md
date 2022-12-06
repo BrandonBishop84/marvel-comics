@@ -7,7 +7,10 @@ https://marvel-comic-art.netlify.app
 ## Description
 
 I made this project because I have a huge love for the art of comic books and wanted to be able to display some of those covers to the user.
-![Screen Shot 2022-11-23 at 10 48 32 AM](https://user-images.githubusercontent.com/111710602/203625184-6f310bda-2e7a-47e0-a8dc-3aac33bba03f.png)
+![Screen Shot 2022-12-06 at 9 58 49 AM](https://user-images.githubusercontent.com/111710602/205987429-90bdc8e0-6eba-479c-a59e-26ae9560705e.png)
+
+
+
 
 ## Technologies Used
 
