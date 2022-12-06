@@ -10,7 +10,7 @@ const Results = ({ result }) => {
         <div className='container'>
             <ul className='resultscard'>
                 <li className='listitem'>
-                    <h1 className='title'>Title: {result.title}</h1>
+                    <h1 className='title'>{result.title}</h1>
                     <img className='image' src={`${result.thumbnail.path}.${result.thumbnail.extension}`}/> 
                     {/* <h2 className='description'>Description: {result.description}</h2> */}
                 </li>
